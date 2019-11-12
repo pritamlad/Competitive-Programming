@@ -1,107 +1,104 @@
-/*Chef is so good at programming that he won almost all competitions. With all the prizes, Chef bought a new house. The house looks like a grid of size N (1-indexed) which consists of N × N rooms containing diamonds. For each room, the room number is equal to the sum of the row number and the column number.
-
-The number of diamonds present in each room is equal to the absolute difference between the sum of even digits and sum of odd digits in its room number. For example, if the room number is 3216, then the number of diamonds present in that room will be |(2+6)-(3+1)| = 4.
-
-You are given the number N. You have to print the total number of diamonds present in Chef's house.
-Input
-
-    The first line of the input contains a single integer T denoting the number of test cases. The description of T test cases follows.
-    The only line of each test case contains a single integer N.
-
-Output
-
-For each test case, print the answer on a separate line.
-Constraints
-
-    1 ≤ T ≤ 105
-    1 ≤ N ≤ 106
-
-Subtasks
-
-Subtask #1 (15 points):
-
-    1 ≤ T ≤ 10
-    1 ≤ N ≤ 1000
-
-Subtask #2 (15 points):
-
-    1 ≤ T ≤ 10
-    1 ≤ N ≤ 106
-
-Subtask #3 (70 points): original constraints
-Example
-
-Input:
-
-3
-1
-2
-3
-
-Output:
-
-2
-12
-36
-
-Explanation
-
-Example case 3: There are 9 rooms. Room (1,1) has number 2, room (1,2) has number 3, etc. For each room, the number of diamonds in it is equal to the room number, so the total number of diamonds present is (2+3+4+3+4+5+4+5+6) = 36.*/
-
 
 #include <bits/stdc++.h>
+#define ff first
+#define ss second
+#define mp make_pair
+#define pb push_back
+#define ppb pop_back
+#define pf push_front
+#define ppf pop_front
+#define eb emplace_back
+#define lwr lower_bound
+#define upr upper_bound
+#define pq priority_queue
+#define umap unordered_map
+#define rep(i,n) for(i=0; i<n;i++)
+#define repp(i,a,n) for(i=a; i<n;i++)
+#define precise(x) cout<<fixed<<setprecision(x)
+#define all(x) x.begin(),x.end()
+#define lcm(a,b) (a*b)/__gcd(a,b)
+#define prn(x) cout<<x<<"\n"
+#define prn2(x, y) cout<<x<<" "<<y<<"\n"
+#define prn3(x, y, z) cout<<x<<" "<<y<<" "<<z<<"\n"
+#define prn4(x, y, z, a) cout<<x<<" "<<y<<" "<<z<<" "<<a<<"\n"
+#define prnv(x) for(auto i:x) cout<<i<<" "; cout<<"\n"
+#define MOD 1000000007
+#define MAX 300005
 using namespace std;
-#define ll long long int
-
-ll f(ll n)
-{	
-	ll odd = 0;
-	ll even = 0;
-	while (n)
-	{
-		
-		if (n%2==0)
-		{
-			even += n%10;
-		}
-		else 
-		{
-			odd += n%10;
-		}
-		n /=10;
-	}
-	return abs(even-odd);
+ 
+typedef unsigned long long ull;
+typedef long long ll;
+typedef double ld;
+typedef pair<int, int> pii;
+typedef pair<ll, int> pli;
+typedef pair<int, ll> pil;
+typedef pair<ll, ll> pll;
+typedef pair<double, double> pdd; 
+typedef vector<int> vi;
+typedef vector<long> vl;
+typedef vector<char> vc;
+typedef vector<ll> vll;
+typedef vector<bool> vb;
+typedef vector<double> vd;
+typedef vector<string> vs;
+typedef vector<pii> vpii;
+typedef vector<pil> vpil;
+typedef vector<pli> vpli;
+typedef vector<pll> vpll;
+const long long INF64 = 1'000'000'000'000'000'000ll;
+clock_t time_p=clock();
+void time()
+{
+    time_p=clock()-time_p;
+    cerr<<"Time Taken : "<<(float)(time_p)/CLOCKS_PER_SEC<<"\n";
+}
+void doc()
+{
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+}
+void fast()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);cout.tie(NULL);
 }
 
+ll fun(ll n)
+{
+	ll odd_sum=0,even_sum=0;
+	while(n)
+	{
+		ll temp=n%10;
+		n/=10;
+		if(temp%2)
+			odd_sum+=temp;
+		else
+			even_sum+=temp;
+	}
+	return abs(odd_sum-even_sum);
+}
 int main()
 {	
-	#ifndef ONLINE_JUDGE
-        freopen("input.txt","r",stdin);
-        freopen("output.txt","w",stdout);
-    #endif
-
-	int t;
-	cin >> t;
-	ll diamonds[2000005];
-	ll prefix[1000005];
-	prefix[0]=0;
-	for (int i=1;i<1000005; i++)
-	{
-		prefix[i] = prefix[i-1] +f(i);
-	}
-
-	diamonds[0] =0;
-	diamonds[1] =2;
-	for(int i =2;i<1000005;i++)
-	{
-		diamonds[i] = diamonds[i-1] +(prefix[2*i-1] - prefix[i])*2+f(2*i);
-	}
-
+	doc();
+	fast();
+	ll i,t;
+	cin>>t;
+	
+	ll diamonds[1000001];//,
+	umap<ll,ll> pref;
+	pref[0]=0;
+	diamonds[1]=1;
+	
+	for(i=1;i<2000001;i++)
+		pref[i]=pref[i-1]+fun(i);
+	
+	for(i=2;i<1000001;i++)
+		diamonds[i]=diamonds[i-1]+2*(pref[2*i-1]-pref[i])+fun(2*i);
+	
 	while(t--)
 	{
-		long long int n;
-		cin >> n;
-		cout << diamonds[n] << endl;
+		ll n;
+		cin>>n;
+		cout<<diamonds[n]+1<<endl;
 	}
-	return 0;
 }
