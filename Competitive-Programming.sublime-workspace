@@ -1,0 +1,538 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"iost",
+				"iostream\tstandard header"
+			],
+			[
+				"pus",
+				"push_back\tfunc"
+			],
+			[
+				"stdi",
+				"stdio.h\tstandard header (deprecated)"
+			],
+			[
+				"line",
+				"lineNum\tstatement"
+			],
+			[
+				"read",
+				"readline\tfunction"
+			],
+			[
+				"my",
+				"myFile"
+			],
+			[
+				"e",
+				"elements_count"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\n#include <bits/stdc++.h>\nusing namespace std;\n#define ll long long int\n\nll f(ll n)\n{\t\n\tll odd = 0;\n\tll even = 0;\n\twhile (n)\n\t{\n\t\t\n\t\tif (n%2==0)\n\t\t{\n\t\t\teven += n%10;\n\t\t}\n\t\telse \n\t\t{\n\t\t\todd += n%10;\n\t\t}\n\t\tn /=10;\n\t}\n\treturn abs(even-odd);\n}\n\nint main()\n{\t\n\t#ifndef ONLINE_JUDGE\n        freopen(\"input.txt\",\"r\",stdin);\n        freopen(\"output.txt\",\"w\",stdout);\n    #endif\n\n\tint t;\n\tcin >> t;\n\tll diamonds[1000005];\n\tll prefix[2000005];\n\tprefix[0]=0;\n\tfor (int i=1;i<1000005; i++)\n\t{\n\t\tprefix[i] = prefix[i-1] +f(i);\n\t}\n\n\tdiamonds[0] =0;\n\tdiamonds[1] =2;\n\tfor(int i =2;i<1000005;i++)\n\t{\n\t\tdiamonds[i] = diamonds[i-1] +(prefix[2*i-1] - prefix[i])*2+f(2*i);\n\t}\n\n\twhile(t--)\n\t{\n\t\tlong long int n;\n\t\tcin >> n;\n\t\tcout << diamonds[n] << endl;\n\t}\n\treturn 0;\n}\n",
+			"file": "DynamicProgramming/TotalDiamonds/main.cpp",
+			"file_size": 2238,
+			"file_write_time": 132180398123463167,
+			"settings":
+			{
+				"buffer_size": 750,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "3\n1\n2\n3",
+			"file": "DynamicProgramming/TotalDiamonds/input.txt",
+			"file_size": 0,
+			"file_write_time": 132180314365965453,
+			"settings":
+			{
+				"buffer_size": 7,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DynamicProgramming/TotalDiamonds/output.txt",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/c++.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c++.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/c++.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c++.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					""
+				],
+				[
+					"Packages/User/untitled.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/c++.sublime-build",
+					""
+				],
+				[
+					"Packages/User/c++.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/c++.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package reso",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"ints",
+				"Package Control: Install Package"
+			],
+			[
+				"the",
+				"UI: Select Theme"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 180.0,
+		"history":
+		[
+			"s",
+			"git status",
+			"clear",
+			"c",
+			"ls",
+			"clear"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/pritamlad/Dev/Competitive-Programming",
+		"/home/pritamlad/Dev/Competitive-Programming/DynamicProgramming",
+		"/home/pritamlad/Dev/Competitive-Programming/DynamicProgramming/TotalDiamonds"
+	],
+	"file_history":
+	[
+		"/home/pritamlad/cp/code.cpp",
+		"/home/pritamlad/cp/cp.sublime-project",
+		"/home/pritamlad/cp/output.txt",
+		"/home/pritamlad/cp/input.txt",
+		"/home/pritamlad/cp/error.txt",
+		"/home/pritamlad/Dev/Competitive-Programming/Arrays/LECANDY/LECANDY.cpp",
+		"/home/pritamlad/Dev/Competitive-Programming/Arrays/LECANDY/output.txt",
+		"/home/pritamlad/Dev/Competitive-Programming/Arrays/LECANDY/input.txt",
+		"/home/pritamlad/.config/sublime-text-3/Packages/User/demo.cpp",
+		"/home/pritamlad/.config/sublime-text-3/Packages/Default/exec.py",
+		"/home/pritamlad/Dev/Competitive-Programming/Arrays/LECANDY.cpp",
+		"/home/pritamlad/Desktop/cpp/vector.cpp",
+		"/home/pritamlad/Desktop/cpp/demo.cpp",
+		"/home/pritamlad/Desktop/cpp/watermelon.cpp",
+		"/home/pritamlad/Desktop/demo.py",
+		"/home/pritamlad/Desktop/cpp/data_types.cpp",
+		"/home/pritamlad/Desktop/cpp/HelloWorld.pp",
+		"/home/pritamlad/.config/sublime-text-3/Packages/User/python3.sublime-build",
+		"/home/pritamlad/Dev/Python/demo.py",
+		"/home/pritamlad/Desktop/HelloWorld.cpp",
+		"/home/pritamlad/.config/sublime-text-3/Packages/User/c++.sublime-build",
+		"/home/pritamlad/Desktop/projects/helloworld/HelloWorld.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "DynamicProgramming/TotalDiamonds/main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 750,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
+							]
+						],
+						"settings":
+						{
+							"SL.29.region_keys":
+							[
+							],
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 244.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "DynamicProgramming/TotalDiamonds/input.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "DynamicProgramming/TotalDiamonds/output.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.897753711716,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 169.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "Competitive-Programming.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Desktop/HelloWorld.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/cp/cp.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				2
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 174.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
