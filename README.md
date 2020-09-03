@@ -4,7 +4,7 @@
 [CodeChef](http://www.codechef.com/users/pritamlad18/)         
 
 ## Learning Resources
-[Competitive Programmer's Handbook] (https://cses.fi/book/index.php)
+[Competitive Programmer's Handbook](https://cses.fi/book/index.php)
 
 ## My Online Submissions 
  [Codeforces Round #632 (Div. 2)](./MyOnlineSubmissions/Codeforces%20Round%20%23632%20(Div.%202))   
